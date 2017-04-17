@@ -27,3 +27,5 @@ server.listen( server.get('port'), () =>
 )
 
 export default server
+
+//in the test script set prpcess.env.port to 7357 

@@ -3,6 +3,7 @@ import chai, { expect } from 'chai'
 import chaiHttp from 'chai-http'
 
 process.env.NODE_ENV = 'test'
+process.env.PORT = 7537
 const knex = require( '../source/dataServices/database/knex' )
 
 chai.use( chaiHttp )
