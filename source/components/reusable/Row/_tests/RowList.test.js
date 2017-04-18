@@ -3,12 +3,13 @@ import { mount } from 'enzyme'
 import { expect } from '../../../../../configuration/testSetup'
 import RowList from '../RowList'
 
-describe( '<RowList />', () => {
+describe.only( '<RowList />', () => {
   const type = 'project'
-  const items = [
-    { id: 1, text: 'cows' },
-    { id: 2, text: 'blob' }
-  ]
+  const items = {
+    1: { id: 1, text: 'cows' },
+    2: { id: 2, text: 'blob' }
+  }
+
 
   context( 'when given items', () => {
     const wrapper = mount( <RowList type={ type } items={ items } /> )
@@ -18,7 +19,7 @@ describe( '<RowList />', () => {
     )
 
     it( 'should render a <Row /> for each item', () =>
-      expect( wrapper.find( 'Row' ).length ).to.equal( items.length )
+      expect( wrapper.find( 'Row' ).length ).to.equal( Object.keys( items ).length )
     )
 
   })
