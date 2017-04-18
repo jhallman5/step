@@ -8,8 +8,10 @@ import FooterContainer from '../reusable/Footer/FooterContainer'
 
 export default class ProjectListContainer extends GlobalStateComponent {
   componentDidMount() {
-    axios.get( `${__HOST__}/user/${this.state.userId}/projects` ) //eslint-disable-line
-      .then( body => globalState.set({ projects: body.data }) )
+    axios.get( `${__HOST__}/user/${this.props.userId}/projects` ) //eslint-disable-line
+      .then( body => {
+        globalState.set({ projects: body.data })
+      })
       .catch( componentErrorHandler( 'ProjectListContainer' ) )
   }
 
