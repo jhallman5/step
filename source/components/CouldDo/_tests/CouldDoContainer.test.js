@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { mockGlobalState } from 'sym/source/testUtilities/mockComponentData'
 import { expect } from '../../../../configuration/testSetup'
 import CouldDoContainer from '../CouldDoContainer'
 import globalState from '../../utilities/globalState'
-import mockGlobalState from '../../../testUtilities/mockComponentData'
 
 describe( ' <CouldDoContainer />', () => {
 

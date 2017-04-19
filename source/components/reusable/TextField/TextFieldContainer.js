@@ -11,20 +11,16 @@ export default class TextFieldContainer extends Component {
     this.state = {
       editing: false,
       inputValue: this.props.text,
-      globalState: globalState.get()
     }
+
     this.toggleEditable = this.toggleEditable.bind( this )
     this.editInput = this.editInput.bind( this )
     this.handleKeyPress = this.handleKeyPress.bind( this )
   }
 
-  toggleEditable() {
-    this.setState({ editing: !this.state.editing })
-  }
+  toggleEditable() { this.setState({ editing: !this.state.editing }) }
 
-  editInput( event ) {
-    this.setState({ inputValue: event.target.value })
-  }
+  editInput( event ) { this.setState({ inputValue: event.target.value }) }
 
   determineUpdateTarget() {
     let { type } = this.props

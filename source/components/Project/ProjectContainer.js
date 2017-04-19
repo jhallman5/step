@@ -1,3 +1,5 @@
+/* global __HOST__ */
+
 import React from 'react'
 import axios from 'axios'
 import globalState from '../utilities/globalState'
@@ -12,7 +14,7 @@ export default class ProjectContainer extends GlobalStateComponent {
   }
 
   componentDidMount() {
-    axios.get( `${__HOST__}/project/${this.projectId}/could-do` ) //eslint-disable-line
+    axios.get( `${__HOST__}/project/${this.projectId}/could-do` )
       .then( response => {
         globalState.set({ couldDos: { [this.projectId]: response.data } })
       })

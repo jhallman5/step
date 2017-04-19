@@ -1,7 +1,6 @@
 import passport from 'passport'
 
 const checkForAuthorization = ( request, response, next ) => {
-  console.log( request.session )
   if ( request.isAuthenticated() ) {
     request.userId = request.session.passport.user
     next()

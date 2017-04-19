@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme'
 import { expect } from '../../../../../configuration/testSetup'
 import TextFieldContainer from '../TextFieldContainer'
 
-describe( '<TextFieldContainer />', () => {
+describe.only( '<TextFieldContainer />', () => {
   let warnStub
 
   beforeEach( () => {

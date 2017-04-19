@@ -1,6 +1,8 @@
+/* global __HOST__ */
+
 import React, { Component } from 'react'
 import axios from 'axios'
-import ProjectListContainer from '../ProjectsList/ProjectListContainer'
+import ProjectMenuContainer from '../ProjectMenu/ProjectMenuContainer'
 import LoginContainer from '../Login/LoginContainer'
 import componentErrorHandler from '../utilities/componentErrorHandler'
 
@@ -11,25 +13,19 @@ export default class Landing extends Component {
   }
 
   componentDidMount() {
-    axios.get( `${__HOST__}/session` ) // eslint-disable-line
-      .then( response => {
-        if ( response.data.userId ) {
-          this.setState({ userId: response.data.userId })
-        }
+    axios.get( `${__HOST__}/session` )
+      .then( ({ data: { userId } }) => {
+        if ( userId ) { this.setState({ userId }) }
       })
       .catch( componentErrorHandler( 'App' ) )
   }
 
   render() {
     const userId = this.state.userId
-    const loginOrProjectsList = userId ?
-      <ProjectListContainer userId={ userId } /> :
-      <LoginContainer userId={ userId } />
+    const loginOrProjectMenu = userId ?
+      <ProjectMenuContainer userId={ userId } /> :
+      <LoginContainer />
 
-    return (
-      <div>
-        { loginOrProjectsList }
-      </div>
-    )
+    return loginOrProjectMenu
   }
 }

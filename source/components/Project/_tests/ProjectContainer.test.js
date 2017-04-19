@@ -2,10 +2,10 @@ import React from 'react'
 import sinon from 'sinon'
 import moxios from 'moxios'
 import { shallow, mount } from 'enzyme'
+import { mockGlobalState } from 'sym/source/testUtilities/mockComponentData'
 import { expect, testSetup } from '../../../../configuration/testSetup'
 import ProjectContainer from '../ProjectContainer'
 import globalState from '../../utilities/globalState'
-import mockGlobalState from '../../../testUtilities/mockComponentData'
 
 describe( ' <ProjectContainer />', () => {
 

@@ -17,6 +17,7 @@ const globalState = {
     for ( const property in stateStorage ) {
       delete stateStorage[property]
     }
+    this.passStateToSubscribers()
   },
 
   subscribe( subscriber ) {
