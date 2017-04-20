@@ -1,4 +1,4 @@
-const mockCouldDos = {
+const mockGlobalStateCouldDos = {
   1: {
     id: 1,
     text: 'give unsolicited advice to people',
@@ -13,34 +13,57 @@ const mockCouldDos = {
   },
 }
 
-const mockProjects = {
+const mockGlobalStateProjects = {
   1: {
     id: 1,
     text: 'learn to chortle',
-    couldDos: mockCouldDos
+    couldDos: mockGlobalStateCouldDos
   },
   2: {
     id: 2,
     text: 'learn to be creative while fearing for your livelihood',
-    couldDos: mockCouldDos
+    couldDos: mockGlobalStateCouldDos
   },
   3: {
     id: 3,
     text: 'enter the danger zone',
-    couldDos: mockCouldDos
+    couldDos: mockGlobalStateCouldDos
   },
   4: {
     id: 4,
     text: 'break into someone\'s house and organize thier stuff',
-    couldDos: mockCouldDos
+    couldDos: mockGlobalStateCouldDos
   }
 }
 
 const mockGlobalState = {
   userId: 1,
   currentProjectId: 2,
-  projects: mockProjects,
+  projects: mockGlobalStateProjects,
   currentCouldDoId: 1
 }
 
-export { mockGlobalState, mockProjects, mockCouldDos }
+const mockProjects = [
+  {
+    id: 1,
+    text: 'learn to chortle',
+    couldDos: mockGlobalStateCouldDos
+  },
+  {
+    id: 2,
+    text: 'learn to be creative while fearing for your livelihood',
+    couldDos: mockGlobalStateCouldDos
+  },
+  3: {
+    id: 3,
+    text: 'enter the danger zone',
+    couldDos: mockGlobalStateCouldDos
+  },
+  {
+    id: 4,
+    text: 'break into someone\'s house and organize thier stuff',
+    couldDos: mockGlobalStateCouldDos
+  }
+]
+
+export { mockGlobalState, mockProjects }

@@ -10,7 +10,12 @@ import ProjectMenu from './ProjectMenu'
 export default class ProjectMenuContainer extends GlobalStateComponent {
   componentDidMount() {
     axios.get( `${__HOST__}/user/${this.props.userId}/projects` )
-      .then( ({ data: projects }) => globalState.set({ projects }) )
+      .then( ({ data: projects }) => {
+        const projectsObject = projects.reduce( ( accumulator, { id, text } ) => { //eslint-disable-line
+          return Object.assign( accumulator, { [id]: { id, text } } ) //eslint-disable-line
+        }, {})
+        globalState.set({ projects: projectsObject })
+      })
       .catch( componentErrorHandler( 'ProjectMenuContainer' ) )
   }
 

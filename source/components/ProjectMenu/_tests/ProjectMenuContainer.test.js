@@ -36,7 +36,7 @@ describe( '<ProjectMenuContainer />', () => {
           status: 200,
           response: mockProjects
         }).then( () => {
-          expect( wrapper.state().projects ).to.eql( mockProjects )
+          expect( wrapper.state().projects[1].text ).to.eql( mockProjects[0].text )
           done()
         }).catch( done )
       })
