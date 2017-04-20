@@ -1,43 +1,36 @@
 import React from 'react'
 import sinon from 'sinon'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 import { expect } from '../../../../../configuration/testSetup'
 import TextFieldContainer from '../TextFieldContainer'
 
-describe.only( '<TextFieldContainer />', () => {
-  let warnStub
+describe( '<TextFieldContainer />', () => {
+  let warnStub, wrapper, makeEditableSpy
 
   beforeEach( () => {
     warnStub = sinon.stub( console, 'warn' ).callsFake( () => null )
+    makeEditableSpy = sinon.spy( TextFieldContainer.prototype, 'makeEditable' )
+    wrapper = mount( <TextFieldContainer /> )
   })
 
   afterEach( () => {
     warnStub.restore()
+    makeEditableSpy.restore()
   })
 
-  it( 'calls toggleEditable on click', () => {
-    const spy = sinon.spy( TextFieldContainer.prototype, 'toggleEditable' )
-    const wrapper = mount( <TextFieldContainer /> )
-
-    wrapper.find( 'TextField' ).simulate( 'click' )
-    expect( spy.calledOnce ).to.equal( true )
-    spy.restore()
-  })
-
-
-  it( 'calls editInput function', () => {
-    const spy = sinon.spy( TextFieldContainer.prototype, 'editInput' )
-    const wrapper = mount( <TextFieldContainer /> )
-
-    wrapper.find( 'TextField' ).simulate( 'click' )
-    const textChange = wrapper.find( 'TextFieldInput' )
-    textChange.simulate( 'change' )
-    expect( spy.calledOnce ).to.equal( true )
-    spy.restore()
-  })
-
-  it( 'renders the child component', () =>
-    expect( shallow( <TextFieldContainer /> ).find( 'TextField' ).length ).to.equal( 1 )
+  it( 'renders .text-field-container', () =>
+    expect( wrapper.find( '.text-field-container' ).length ).to.equal( 1 )
   )
+
+  it( 'calls makeEditable on click', () => {
+    wrapper.find( '.text-field-container' ).simulate( 'click' )
+    expect( makeEditableSpy.calledOnce ).to.equal( true )
+  })
+
+  it( 'renders <TextField />', () =>
+    expect( wrapper.find( 'TextField' ).length ).to.equal( 1 )
+  )
+
+  // Write test for handleKeyPress
 
 })

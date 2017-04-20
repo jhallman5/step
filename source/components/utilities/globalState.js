@@ -20,6 +20,16 @@ const globalState = {
     this.passStateToSubscribers()
   },
 
+  updateProjectText( projectId, text ) {
+    stateStorage.projects[projectId].text = text
+    this.passStateToSubscribers()
+  },
+
+  updateCouldDoText( projectId, couldDoId, text ) {
+    stateStorage.projects[projectId].couldDos[couldDoId].text = text
+    this.passStateToSubscribers()
+  },
+
   subscribe( subscriber ) {
     this.subscribers.push( subscriber )
   },
