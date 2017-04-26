@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 import Row from './Row'
 import globalState from '../../utilities/globalState'
 
@@ -12,7 +12,7 @@ export default class RowContainer extends Component {
   async goToProject() {
     const { id } = this.props
     await globalState.setCurrentProjectId( id )
-    browserHistory.push( '/project' )
+    this.context.history.push( '/project' )
   }
 
   render() {
