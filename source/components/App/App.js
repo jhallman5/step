@@ -1,17 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Landing from './Landing'
 import ProjectContainer from '../Project/ProjectContainer'
 import CouldDoContainer from '../CouldDo/CouldDoContainer'
 
 const App = () => (
-  <BrowserRouter>
+  <Router>
     <div>
-      <Route exact={ true } path='/' component={ Landing } /> //eslint-disable-line
+      <Route exact path='/' component={ Landing } />
       <Route path='/project' component={ ProjectContainer } />
       <Route path='/could-do' component={ CouldDoContainer } />
     </div>
-  </BrowserRouter>
+  </Router>
 )
 
 export default App
