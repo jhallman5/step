@@ -25,9 +25,9 @@ describe( '<CouldDo />', () => {
     })
 
 
-    it( 'should render a CouldDo component with class \'could-do-container\'', () => {
+    it( 'should render a CouldDo component with class \'could-do-container\'', () => 
       expect( wrapper.find( '.could-do-container' ).length ).to.equal( 1 )
-    })
+    )
 
     it( 'should render CouldDo component with class \'add-could-do\'', () =>
       expect( wrapper.find( '.add-could-do' ).length ).to.equal( 1 )
@@ -56,9 +56,9 @@ describe( '<CouldDo />', () => {
       )
     })
 
-    it( 'should not render button with class \'previous-could-do\'', () => {
+    it( 'should not render button with class \'previous-could-do\'', () => 
       expect( wrapper.find( '.previous-could-do' ).length ).to.equal( 0 )
-    })
+    )
 
     it( 'should render button with class \'next-could-do\'', () =>
       expect( wrapper.find( '.next-could-do' ).length ).to.equal( 1 )
@@ -104,13 +104,13 @@ describe( '<CouldDo />', () => {
     })
 
 
-    it( 'previous button clicks triggers functions', () => {
+    it( 'previous button clicks triggers functions', () => 
       expect( testString.includes( 'previousCouldDo is called : ' ) ).to.equal( true )
-    })
+    )
 
-    it( 'next button clicks triggers functions', () => {
+    it( 'next button clicks triggers functions', () => 
       expect( testString.includes( 'nextCouldDo is called.' ) ).to.equal( true )
-    })
+    )
 
   })
 
