@@ -1,3 +1,4 @@
+
 .login-button {
   background-color: $darkblue-background;
   border: none;
@@ -10,8 +11,13 @@
   text-align: center;
 }
 
+.login-button:hover {
+  color: darken($white-text, 25%);
+}
+
 .login-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
