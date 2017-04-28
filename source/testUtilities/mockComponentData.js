@@ -83,7 +83,12 @@ const mockCouldDos = [
 
 const createDeepClone = ( object ) => {
   if ( Array.isArray( object ) ) {
-    return object.map( x => x )
+    return object.map( x => {
+      if ( typeof x === 'object' ) {
+        return createDeepClone( x )
+      }
+      return x
+    })
   }
   const clone = {}
   for ( const key in object ) {
