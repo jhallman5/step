@@ -81,4 +81,19 @@ const mockCouldDos = [
   },
 ]
 
-export { mockGlobalState, mockProjects, mockCouldDos }
+const createDeepClone = ( object ) => {
+  if ( Array.isArray( object ) ) {
+    return object.map( x => x )
+  }
+  const clone = {}
+  for ( const key in object ) {
+    if ( typeof object[key] === 'object' ) {
+      clone[key] = createDeepClone( object[key] )
+    } else {
+      clone[key] = object[key]
+    }
+  }
+  return clone
+}
+
+export { mockGlobalState, mockProjects, mockCouldDos, createDeepClone }
